@@ -4,7 +4,17 @@
     <meta charset="UTF-8"> <!-- Specifies the character encoding for the document -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures the site is responsive on mobile devices -->
     <title>Bluesky News</title> <!-- Sets the title of the page, displayed in the browser tab -->
-    <link rel="icon" href="https://blueskynews.vercel.app/Bluesky.svg" type="image/png">        
+    <link rel="icon" href="https://blueskynews.vercel.app/Bluesky.svg" type="image/png">   
+    <meta property="og:image" content="https://blueskynews.vercel.app/img/2.jpg">
+    <meta property="og:title" content="BlueskyNEWS">
+    <meta property="og:description" content="A site (unofficial) that provides information on Bluesky updates.">
+    <meta property="og:url" content="https://blueskynews.vercel.app">
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@yuikun_xt" />
+    <meta name="twitter:title" content="BlueskyNEWS" />
+    <meta name="twitter:description" content="A site (unofficial) that provides information on Bluesky updates." />
+    <meta name="twitter:image" content="https://blueskynews.vercel.app/img/2.jpg" />        
     <style>
         /* Basic CSS for styling */
         body {
@@ -144,20 +154,22 @@
     </header>
     <main class="main-content"> <!-- Main section of the page containing news articles -->
         <section class="news-list"> <!-- Defines a section for the list of news articles -->
+            
             <!-- Article1 -->
             <article class="news-item"> <!-- Each news item is encapsulated in an article tag -->
-                <img src="img/1.jpg" alt="News Image" class="news-image"> <!-- Placeholder for news image -->
+                <img src="img/2.jpg" alt="News Image" class="news-image"> <!-- Placeholder for news image -->
                 <div class="news-content"> <!-- Contains the text content of the news item -->
-                    <h2 class="news-title">Breaking News: Major Event Unfolds</h2> <!-- Title of the news article -->
-                    <p class="news-summary">A major event is currently unfolding, drawing attention worldwide...</p> <!-- Short summary of the news article -->
+                    <h2 class="news-title">Bluesky Update1.96 📣</h2> <!-- ニュースタイトル -->
+                    <p class="news-summary">Bluesky Update 1.96 includes the following information (unofficial)</p> <!-- 詳細 -->
                     <div class="share-buttons"> <!-- Container for share buttons -->
-                        <a href="article/1.html" class="read-more">Read me</a> <!-- Read more button styled as a black button -->
-                        <a href="#" class="share-button"><img src="Twitter.svg" alt="Twitter"></a> <!-- Twitter share button -->
-                        <a href="#" class="share-button"><img src="Bluesky.svg" alt="Bluesky"></a> <!-- Bluesky share button -->
+                        <a href="article/1.html" class="read-more">Read me</a> <!-- 読むボタン -->
+                        <a href="https://twitter.com/compose/tweet?text=Bluesky Update1.96 📣 https://blueskynews.vercel.app/article/1.html" class="share-button"><img src="Twitter.svg" alt="Twitter"></a> <!-- Twitter -->
+                        <a href="https://bsky.app/intent/compose?text=Bluesky Update1.96 📣 https://blueskynews.vercel.app/article/1.html" class="share-button"><img src="Bluesky.svg" alt="Bluesky"></a> <!-- Bluesky -->
                     </div>
                 </div>
             </article>
             <!-- Article1終わり -->
+            
             <!-- Add more articles as needed for additional news -->
         </section>
     </main>
