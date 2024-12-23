@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"> <!-- Specifies the character encoding for the document -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures the site is responsive on mobile devices -->
-    <title>Overseas News Site</title> <!-- Sets the title of the page, displayed in the browser tab -->
+    <title>Bluesky News</title> <!-- Sets the title of the page, displayed in the browser tab -->
     <style>
         /* Basic CSS for styling */
         body {
@@ -53,7 +53,7 @@
 
         .news-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr; /* Single-column layout for timeline style */
             gap: 20px;
         }
 
@@ -63,6 +63,7 @@
             padding: 15px;
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
         .news-title {
@@ -84,12 +85,34 @@
         .read-more:hover {
             text-decoration: underline;
         }
+
+        .share-buttons {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .share-button {
+            background-color: #007bff; /* Blue background for buttons */
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 0.9em;
+            cursor: pointer;
+        }
+
+        .share-button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
     </style>
 </head>
 <body>
     <header class="header"> <!-- Defines the top section of the page containing the logo and menu -->
         <div class="logo"> <!-- Contains the site logo -->
-            <img src="img/logo.png" alt="Site Logo"> <!-- Displays the logo image -->
+            <img src="img/logo.png" alt="Bluesky Logo"> <!-- Displays the logo image -->
         </div>
         <nav class="menu"> <!-- Navigation menu for site links -->
             <ul>
@@ -107,11 +130,17 @@
                 <h2 class="news-title">Breaking News: Major Event Unfolds</h2> <!-- Title of the news article -->
                 <p class="news-summary">A major event is currently unfolding, drawing attention worldwide...</p> <!-- Short summary of the news article -->
                 <a href="#" class="read-more">Read more</a> <!-- Link to the full article -->
+                <div class="share-buttons"> <!-- Container for share buttons -->
+                    <button class="share-button" onclick="shareNews('Breaking News: Major Event Unfolds')">Share</button>
+                </div>
             </article>
             <article class="news-item"> <!-- Another news article -->
                 <h2 class="news-title">Technology Updates: New Innovations</h2> <!-- Title of the second news article -->
                 <p class="news-summary">The tech world has introduced groundbreaking innovations this week...</p> <!-- Summary of the second news article -->
                 <a href="#" class="read-more">Read more</a> <!-- Link to the full article -->
+                <div class="share-buttons"> <!-- Container for share buttons -->
+                    <button class="share-button" onclick="shareNews('Technology Updates: New Innovations')">Share</button>
+                </div>
             </article>
             <!-- Add more articles as needed for additional news -->
         </section>
@@ -124,6 +153,11 @@
                 alert('This feature is coming soon!'); // Placeholder action for links
             });
         });
+
+        // Function to handle sharing news articles
+        function shareNews(title) {
+            alert(`You shared: ${title}`); // Simulate sharing action
+        }
     </script>
 </body>
 </html>
