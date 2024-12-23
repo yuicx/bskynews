@@ -1,1 +1,129 @@
-<h1>just setting up bluesky news</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Specifies the character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures the site is responsive on mobile devices -->
+    <title>Overseas News Site</title> <!-- Sets the title of the page, displayed in the browser tab -->
+    <style>
+        /* Basic CSS for styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* Light gray background for the site */
+        }
+
+        .header {
+            background-color: #000; /* Black background for header */
+            color: #fff; /* White text */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .logo img {
+            height: 50px; /* Set a fixed height for the logo */
+        }
+
+        .menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .menu li {
+            margin-left: 20px;
+        }
+
+        .menu a {
+            color: #fff; /* White text for menu links */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .menu a:hover {
+            text-decoration: underline; /* Underline links on hover */
+        }
+
+        .main-content {
+            padding: 20px;
+        }
+
+        .news-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .news-item {
+            background: #fff; /* White background for news items */
+            border: 1px solid #ddd; /* Light border */
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .news-summary {
+            font-size: 1em;
+            margin-bottom: 15px;
+            color: #555; /* Gray text for summary */
+        }
+
+        .read-more {
+            color: #007bff; /* Blue text for links */
+            text-decoration: none;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header class="header"> <!-- Defines the top section of the page containing the logo and menu -->
+        <div class="logo"> <!-- Contains the site logo -->
+            <img src="logo.png" alt="Site Logo"> <!-- Displays the logo image -->
+        </div>
+        <nav class="menu"> <!-- Navigation menu for site links -->
+            <ul>
+                <li><a href="#">Home</a></li> <!-- Link to the homepage -->
+                <li><a href="#">World</a></li> <!-- Link to world news -->
+                <li><a href="#">Politics</a></li> <!-- Link to politics news -->
+                <li><a href="#">Business</a></li> <!-- Link to business news -->
+                <li><a href="#">Tech</a></li> <!-- Link to technology news -->
+            </ul>
+        </nav>
+    </header>
+    <main class="main-content"> <!-- Main section of the page containing news articles -->
+        <section class="news-list"> <!-- Defines a section for the list of news articles -->
+            <article class="news-item"> <!-- Each news item is encapsulated in an article tag -->
+                <h2 class="news-title">Breaking News: Major Event Unfolds</h2> <!-- Title of the news article -->
+                <p class="news-summary">A major event is currently unfolding, drawing attention worldwide...</p> <!-- Short summary of the news article -->
+                <a href="#" class="read-more">Read more</a> <!-- Link to the full article -->
+            </article>
+            <article class="news-item"> <!-- Another news article -->
+                <h2 class="news-title">Technology Updates: New Innovations</h2> <!-- Title of the second news article -->
+                <p class="news-summary">The tech world has introduced groundbreaking innovations this week...</p> <!-- Summary of the second news article -->
+                <a href="#" class="read-more">Read more</a> <!-- Link to the full article -->
+            </article>
+            <!-- Add more articles as needed for additional news -->
+        </section>
+    </main>
+    <script>
+        // JavaScript to handle dynamic interactions (if needed in the future)
+        document.querySelectorAll('.read-more').forEach(link => {
+            link.addEventListener('click', event => {
+                event.preventDefault(); // Prevent the default link behavior
+                alert('This feature is coming soon!'); // Placeholder action for links
+            });
+        });
+    </script>
+</body>
+</html>
