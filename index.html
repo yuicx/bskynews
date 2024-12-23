@@ -92,38 +92,44 @@
         }
 
         .read-more {
-            color: #007bff; /* Blue text for links */
+            background-color: #000; /* Black background for the button */
+            color: #fff; /* White text */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px; /* Rounded corners */
+            font-size: 1em;
+            cursor: pointer;
             text-decoration: none;
+            display: inline-block;
         }
 
         .read-more:hover {
-            text-decoration: underline;
+            background-color: #333; /* Darker black on hover */
         }
 
         .share-buttons {
             display: flex;
+            align-items: center;
             gap: 10px;
         }
 
         .share-button {
-            background-color: #007bff; /* Blue background for buttons */
-            color: #fff;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 3px;
-            font-size: 0.9em;
-            cursor: pointer;
+            display: inline-block;
+            width: 24px;
+            height: 24px;
         }
 
-        .share-button:hover {
-            background-color: #0056b3; /* Darker blue on hover */
+        .share-button img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     </style>
 </head>
 <body>
     <header class="header"> <!-- Defines the top section of the page containing the logo and menu -->
         <div class="logo"> <!-- Contains the site logo -->
-            <img src="img/logo.png" alt="Bluesky Logo"> <!-- Displays the logo image -->
+            <img src="logo.png" alt="Bluesky Logo"> <!-- Displays the logo image -->
         </div>
         <nav class="menu"> <!-- Navigation menu for site links -->
             <ul>
@@ -142,9 +148,10 @@
                 <div class="news-content"> <!-- Contains the text content of the news item -->
                     <h2 class="news-title">Breaking News: Major Event Unfolds</h2> <!-- Title of the news article -->
                     <p class="news-summary">A major event is currently unfolding, drawing attention worldwide...</p> <!-- Short summary of the news article -->
-                    <a href="#" class="read-more">Read more</a> <!-- Link to the full article -->
                     <div class="share-buttons"> <!-- Container for share buttons -->
-                        <button class="share-button" onclick="shareNews('Breaking News: Major Event Unfolds')">Share</button>
+                        <a href="#" class="read-more">Read me</a> <!-- Read more button styled as a black button -->
+                        <a href="#" class="share-button"><img src="twitter.svg" alt="Share on Twitter"></a> <!-- Twitter share button -->
+                        <a href="#" class="share-button"><img src="bluesky.svg" alt="Share on Bluesky"></a> <!-- Bluesky share button -->
                     </div>
                 </div>
             </article>
@@ -153,9 +160,10 @@
                 <div class="news-content"> <!-- Contains the text content of the second news item -->
                     <h2 class="news-title">Technology Updates: New Innovations</h2> <!-- Title of the second news article -->
                     <p class="news-summary">The tech world has introduced groundbreaking innovations this week...</p> <!-- Summary of the second news article -->
-                    <a href="#" class="read-more">Read more</a> <!-- Link to the full article -->
                     <div class="share-buttons"> <!-- Container for share buttons -->
-                        <button class="share-button" onclick="shareNews('Technology Updates: New Innovations')">Share</button>
+                        <a href="#" class="read-more">Read me</a> <!-- Read more button styled as a black button -->
+                        <a href="#" class="share-button"><img src="twitter.svg" alt="Share on Twitter"></a> <!-- Twitter share button -->
+                        <a href="#" class="share-button"><img src="bluesky.svg" alt="Share on Bluesky"></a> <!-- Bluesky share button -->
                     </div>
                 </div>
             </article>
