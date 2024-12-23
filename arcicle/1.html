@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Article</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .article-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 20px;
+        }
+
+        .article-content {
+            flex: 2;
+        }
+
+        .article-image {
+            flex: 1;
+            width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .article-title {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .author-info img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .author-name {
+            font-size: 1em;
+            color: #555;
+        }
+
+        .article-text {
+            line-height: 1.6;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="article-container">
+        <div class="article-content">
+            <h1 class="article-title">The Future of Technology</h1>
+            <div class="author-info">
+                <img src="author.jpg" alt="Author">
+                <span class="author-name">Written by John Doe</span>
+            </div>
+            <p class="article-text">
+                In recent years, the pace of technological innovation has been accelerating at an unprecedented rate. From the advent of artificial intelligence to breakthroughs in quantum computing, the possibilities seem endless. Experts predict that these advancements will reshape industries, redefine our daily lives, and address some of humanity's biggest challenges. As we stand on the brink of a new technological era, one thing is clear: the future holds both great promise and great responsibility.
+            </p>
+        </div>
+        <img src="article-image.jpg" alt="Technology" class="article-image">
+    </div>
+</body>
+</html>
