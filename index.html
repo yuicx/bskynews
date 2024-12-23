@@ -63,7 +63,21 @@
             padding: 15px;
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            position: relative;
+            display: flex;
+            gap: 15px;
+        }
+
+        .news-image {
+            flex-shrink: 0;
+            width: 120px;
+            height: 120px;
+            background-color: #eee; /* Placeholder background */
+            border-radius: 5px;
+            object-fit: cover;
+        }
+
+        .news-content {
+            flex: 1;
         }
 
         .news-title {
@@ -87,9 +101,6 @@
         }
 
         .share-buttons {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
             display: flex;
             gap: 10px;
         }
@@ -127,19 +138,25 @@
     <main class="main-content"> <!-- Main section of the page containing news articles -->
         <section class="news-list"> <!-- Defines a section for the list of news articles -->
             <article class="news-item"> <!-- Each news item is encapsulated in an article tag -->
-                <h2 class="news-title">Breaking News: Major Event Unfolds</h2> <!-- Title of the news article -->
-                <p class="news-summary">A major event is currently unfolding, drawing attention worldwide...</p> <!-- Short summary of the news article -->
-                <a href="#" class="read-more">Read more</a> <!-- Link to the full article -->
-                <div class="share-buttons"> <!-- Container for share buttons -->
-                    <button class="share-button" onclick="shareNews('Breaking News: Major Event Unfolds')">Share</button>
+                <img src="image1.jpg" alt="News Image" class="news-image"> <!-- Placeholder for news image -->
+                <div class="news-content"> <!-- Contains the text content of the news item -->
+                    <h2 class="news-title">Breaking News: Major Event Unfolds</h2> <!-- Title of the news article -->
+                    <p class="news-summary">A major event is currently unfolding, drawing attention worldwide...</p> <!-- Short summary of the news article -->
+                    <a href="#" class="read-more">Read more</a> <!-- Link to the full article -->
+                    <div class="share-buttons"> <!-- Container for share buttons -->
+                        <button class="share-button" onclick="shareNews('Breaking News: Major Event Unfolds')">Share</button>
+                    </div>
                 </div>
             </article>
             <article class="news-item"> <!-- Another news article -->
-                <h2 class="news-title">Technology Updates: New Innovations</h2> <!-- Title of the second news article -->
-                <p class="news-summary">The tech world has introduced groundbreaking innovations this week...</p> <!-- Summary of the second news article -->
-                <a href="#" class="read-more">Read more</a> <!-- Link to the full article -->
-                <div class="share-buttons"> <!-- Container for share buttons -->
-                    <button class="share-button" onclick="shareNews('Technology Updates: New Innovations')">Share</button>
+                <img src="image2.jpg" alt="News Image" class="news-image"> <!-- Placeholder for second news image -->
+                <div class="news-content"> <!-- Contains the text content of the second news item -->
+                    <h2 class="news-title">Technology Updates: New Innovations</h2> <!-- Title of the second news article -->
+                    <p class="news-summary">The tech world has introduced groundbreaking innovations this week...</p> <!-- Summary of the second news article -->
+                    <a href="#" class="read-more">Read more</a> <!-- Link to the full article -->
+                    <div class="share-buttons"> <!-- Container for share buttons -->
+                        <button class="share-button" onclick="shareNews('Technology Updates: New Innovations')">Share</button>
+                    </div>
                 </div>
             </article>
             <!-- Add more articles as needed for additional news -->
