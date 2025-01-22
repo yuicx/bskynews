@@ -1,0 +1,22 @@
+/* mobile.css */
+.article-title {
+    font-size: 1.5em;
+}
+
+.author-info {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.article-image {
+    max-height: none;
+}
+
+.logo-desktop {
+    display: none;
+}
+
+.logo-mobile {
+    display: block;
+    height: 40px;
+}
