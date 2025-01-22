@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Article</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .article-container {
+            display: flex;
+            gap: 20px;
+        }
+        .article-content {
+            flex: 2;
+        }
+        .article-image {
+            flex: 1;
+            max-width: 300px;
+        }
+        .article-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .author {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .author-name {
+            font-size: 14px;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+
+<div class="article-container">
+    <div class="article-content">
+        <div class="title">この記事のタイトル</div>
+        <div class="author">
+            <img src="author.jpg" alt="Author">
+            <div class="author-name">執筆者の名前</div>
+        </div>
+        <p>ここに記事の内容が入ります。テキストが長くなっても、右の画像は一定のサイズを保ちます。</p>
+    </div>
+    <div class="article-image">
+        <img src="article-image.jpg" alt="Article Image">
+    </div>
+</div>
+
+</body>
+</html>
