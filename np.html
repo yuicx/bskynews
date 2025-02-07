@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ニュース記事 - BlueskyNEWS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <article class="max-w-6xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden my-8">
+        <!-- 記事ヘッダー -->
+        <header class="p-6 border-b">
+            <div class="flex justify-between items-start mb-4">
+                <h1 class="text-3xl font-bold text-gray-900 max-w-2xl">
+                    <!-- 記事タイトルをここに -->
+                    記事タイトル
+                </h1>
+                <div class="flex space-x-2">
+                    <button class="p-2 hover:bg-gray-100 rounded-full" onclick="navigator.share({title: document.title, url: window.location.href})">
+                        <i class="fas fa-share-alt text-gray-600"></i>
+                    </button>
+                    <button class="p-2 hover:bg-gray-100 rounded-full">
+                        <i class="far fa-bookmark text-gray-600"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="flex items-center text-gray-600 text-sm">
+                <time datetime="2024-03-14">2024年3月14日</time>
+                <span class="mx-2">•</span>
+                <span>カテゴリ</span>
+            </div>
+        </header>
+
+        <!-- メインコンテンツ -->
+        <div class="flex flex-col lg:flex-row p-6 gap-8">
+            <!-- 左側：本文 -->
+            <div class="lg:w-3/5 order-2 lg:order-1">
+                <div class="prose max-w-none">
+                    <!-- 記事の内容をここに -->
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        ここに記事の本文を入力してください。
+                    </p>
+                    
+                    <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">
+                        見出し
+                    </h2>
+                    
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        段落のテキストをここに入力してください。
+                    </p>
+
+                    <blockquote class="border-l-4 border-gray-300 pl-4 my-4 italic text-gray-600">
+                        引用文をここに入力してください。
+                    </blockquote>
+                </div>
+            </div>
+
+            <!-- 右側：画像 -->
+            <div class="lg:w-2/5 order-1 lg:order-2">
+                <div class="sticky top-6">
+                    <img 
+                        src="https://images.unsplash.com/photo-1495020689067-958852a7765e" 
+                        alt="記事サムネイル" 
+                        class="w-full h-auto rounded-lg shadow-md"
+                    >
+                </div>
+            </div>
+        </div>
+
+        <!-- 記事フッター -->
+        <footer class="p-6 border-t border-gray-200">
+            <div class="flex items-center justify-between">
+                <div class="text-sm text-gray-600">
+                    <span class="inline-block bg-gray-100 rounded-full px-3 py-1 mr-2">#タグ1</span>
+                    <span class="inline-block bg-gray-100 rounded-full px-3 py-1">#タグ2</span>
+                </div>
+                <div class="text-sm text-gray-600">
+                    著者: 名前
+                </div>
+            </div>
+        </footer>
+    </article>
+</body>
+</html>
