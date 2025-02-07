@@ -3,11 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ニュース記事 - BlueskyNEWS</title>
+    <title>1test - BlueskyNEWS</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="bg-gray-50">
+    
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4; /* Light gray background for the site */
+    }
+
+    .header {
+        background-color: #000; /* Black background for header */
+        color: #fff; /* White text */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    .logo img {
+        height: 50px; /* Set a fixed height for the logo */
+    }
+
+    .menu ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+
+    .menu li {
+        margin-left: 20px;
+    }
+
+    .menu a {
+        color: #fff; /* White text for menu links */
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .menu a:hover {
+        text-decoration: underline; /* Underline links on hover */
+    }
+</style>
+    
+<header class="header"> <!-- Defines the top section of the page containing the logo and menu -->
+    <div class="logo"> <!-- Contains the site logo -->
+    <a href="<https://blueskynews.vercel.app/>">
+    <img src="img/logo.png" alt="logo" style="width:300px;"></a>
+    </div>
+    <nav class="menu"> <!-- Navigation menu for site links -->
+    <ul>
+        <li><a href="index.html">Home</a></li> <!-- Link to the homepage -->
+        <li><a href="<https://bsky.app/profile/bskynews.bsky.social>">Bluesky</a></li> <!-- Link to world news -->
+        <li><a href="<https://github.com/yuicx/bskynews>">GitHub</a></li> <!-- Link to politics news -->
+        <li><a href="/about">About</a></li> <!-- Link to business news -->
+        <li><a href="<https://bsky.app/profile/wilsie.bsky.social>">what is yui</a></li> <!-- Link to technology news -->
+    </ul>
+    </nav>
+</header>
+    
+    <!-- コンテンツ -->
+    <body class="bg-gray-50">
     <article class="max-w-6xl mx-auto bg-white shadow-lg overflow-hidden min-h-screen sm:min-h-0 sm:my-8 sm:rounded-lg">
         <!-- 記事ヘッダー -->
         <header class="p-4 sm:p-6 border-b">
