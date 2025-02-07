@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-        <style>
+            <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -55,15 +55,15 @@
         <img src="img/logo.png" alt="logo" style="width:300px;"></a>            
         </div>
         <nav class="menu"> <!-- Navigation menu for site links -->
-            <ul>
-                <li><a href="index.html">Home</a></li> <!-- Link to the homepage -->
-                <li><a href="https://bsky.app/profile/bskynews.bsky.social">Bluesky</a></li> <!-- Link to world news -->
-                <li><a href="https://github.com/yuicx/bskynews">GitHub</a></li> <!-- Link to politics news -->
-                <li><a href="/about">About</a></li> <!-- Link to business news -->
-                <li><a href="https://bsky.app/profile/wilsie.bsky.social">what is yui</a></li> <!-- Link to technology news -->
-            </ul>
+        <ul>
+            <li><a href="index.html">Home</a></li> <!-- Link to the homepage -->
+            <li><a href="https://bsky.app/profile/bskynews.bsky.social">Bluesky</a></li> <!-- Link to world news -->
+            <li><a href="https://github.com/yuicx/bskynews">GitHub</a></li> <!-- Link to politics news -->
+            <li><a href="/about">About</a></li> <!-- Link to business news -->
+            <li><a href="https://bsky.app/profile/wilsie.bsky.social">what is yui</a></li> <!-- Link to technology news -->
+        </ul>
         </nav>
-    </header>
+        </header>
 <body class="bg-gray-50">
     <article class="max-w-6xl mx-auto bg-white shadow-lg overflow-hidden min-h-screen sm:min-h-0 sm:my-8 sm:rounded-lg">
         <!-- 記事ヘッダー -->
@@ -73,12 +73,48 @@
                     <!-- 記事タイトルをここに -->
                     記事タイトル
                 </h1>
-                <div class="flex space-x-4 sm:space-x-2">
-                    <button class="p-3 sm:p-2 hover:bg-gray-100 rounded-full touch-manipulation" onclick="navigator.share({title: document.title, url: window.location.href}).catch(() => alert('共有機能は対応していないブラウザでは使用できません。'))">
-                        <i class="fas fa-share-alt text-gray-600 text-lg sm:text-base"></i>
+                <div class="flex space-x-2 sm:space-x-1">
+                    <!-- Twitter共有ボタン -->
+                    <button 
+                        class="p-3 sm:p-2 hover:bg-gray-100 rounded-full touch-manipulation flex items-center gap-2 text-sm"
+                        onclick="window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(document.title)}&url=${encodeURIComponent(window.location.href)}`, '_blank', 'width=550,height=420')"
+                    >
+                        <i class="fab fa-twitter text-[#1DA1F2] text-lg sm:text-base"></i>
+                        <span class="sm:hidden">Twitter</span>
                     </button>
-                    <button class="p-3 sm:p-2 hover:bg-gray-100 rounded-full touch-manipulation">
+
+                    <!-- Bluesky共有ボタン -->
+                    <button 
+                        class="p-3 sm:p-2 hover:bg-gray-100 rounded-full touch-manipulation flex items-center gap-2 text-sm"
+                        onclick="window.open(`https://bsky.app/intent/compose?text=${encodeURIComponent(document.title + ' ' + window.location.href)}`, '_blank')"
+                    >
+                        <i class="fas fa-cloud text-[#0085FF] text-lg sm:text-base"></i>
+                        <span class="sm:hidden">Bluesky</span>
+                    </button>
+
+                    <!-- 一般的な共有ボタン -->
+                    <button 
+                        class="p-3 sm:p-2 hover:bg-gray-100 rounded-full touch-manipulation flex items-center gap-2 text-sm"
+                        onclick="navigator.share({
+                            title: document.title,
+                            url: window.location.href
+                        }).catch(() => {
+                            // クリップボードにコピー
+                            navigator.clipboard.writeText(window.location.href).then(() => {
+                                alert('URLをクリップボードにコピーしました');
+                            }).catch(() => {
+                                alert('共有機能は対応していないブラウザでは使用できません。');
+                            });
+                        })"
+                    >
+                        <i class="fas fa-share-alt text-gray-600 text-lg sm:text-base"></i>
+                        <span class="sm:hidden">共有</span>
+                    </button>
+
+                    <!-- ブックマークボタン -->
+                    <button class="p-3 sm:p-2 hover:bg-gray-100 rounded-full touch-manipulation flex items-center gap-2 text-sm">
                         <i class="far fa-bookmark text-gray-600 text-lg sm:text-base"></i>
+                        <span class="sm:hidden">保存</span>
                     </button>
                 </div>
             </div>
