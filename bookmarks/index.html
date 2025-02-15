@@ -49,20 +49,23 @@
         text-decoration: underline; /* Underline links on hover */
     }
 </style>    
-<body class="bg-gray-50">
+    <!-- HTML -->
     <!-- ヘッダー -->
-    <header class="bg-white shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex-shrink-0">
-                    <a href="/">
-                        <img src="https://blueskynews.vercel.app/img/logo.png" alt="BlueskyNEWS" class="h-8">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
-
+<header class="header"> <!-- Defines the top section of the page containing the logo and menu -->
+    <div class="logo"> <!-- Contains the site logo -->
+    <a href="https://blueskynews.vercel.app/">
+    <img src="https://blueskynews.vercel.app/img/logo.png" alt="logo" style="width:300px;"></a>
+    </div>
+    <nav class="menu"> <!-- Navigation menu for site links -->
+    <ul>
+        <li><a href="index.html">Home</a></li> <!-- Link to the homepage -->
+        <li><a href="<https://bsky.app/profile/bskynews.bsky.social>">Bluesky</a></li> <!-- Link to world news -->
+        <li><a href="<https://github.com/yuicx/bskynews>">GitHub</a></li> <!-- Link to politics news -->
+        <li><a href="/about">About</a></li> <!-- Link to business news -->
+        <li><a href="<https://bsky.app/profile/wilsie.bsky.social>">what is yui</a></li> <!-- Link to technology news -->
+    </ul>
+    </nav>
+</header>    
     <!-- メインコンテンツ -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <!-- ページヘッダー -->
