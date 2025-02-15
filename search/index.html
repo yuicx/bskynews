@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>記事検索 - BlueskyNEWS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <!-- ヘッダー -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="/">
+                        <img src="https://blueskynews.vercel.app/img/logo.png" alt="BlueskyNEWS" class="h-8">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- 検索セクション -->
+        <div class="mb-8">
+            <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">記事検索</h1>
+            
+            <!-- 検索フォーム -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="space-y-4">
+                    <!-- タイトル検索 -->
+                    <div>
+                        <label for="titleSearch" class="block text-sm font-medium text-gray-700 mb-1">
+                            タイトルで検索
+                        </label>
+                        <div class="relative">
+                            <input
+                                type="text"
+                                id="titleSearch"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="キーワードを入力..."
+                            >
+                            <button 
+                                onclick="clearTitleSearch()"
+                                class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                            >
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- タグ検索 -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                            タグで検索
+                        </label>
+                        <div id="tagContainer" class="flex flex-wrap gap-2">
+                            <!-- タグはJavaScriptで動的に追加 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 検索結果 -->
+        <div>
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-semibold text-gray-900">検索結果</h2>
+                <div class="flex items-center gap-2">
+                    <span class="text-sm text-gray-600">並び替え:</span>
+                    <select 
+                        id="sortSelect" 
+                        class="bg-white border border-gray-300 rounded-md px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+                        <option value="newest">新しい順</option>
+                        <option value="oldest">古い順</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- 記事リスト -->
+            <div id="searchResults" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <!-- 検索結果はJavaScriptで動的に追加 -->
+            </div>
+
+            <!-- 検索結果なしの表示 -->
+            <div id="noResults" class="hidden">
+                <div class="text-center py-12">
+                    <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-search text-gray-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">検索結果が見つかりませんでした</h3>
+                    <p class="text-gray-600">
+                        別のキーワードやタグで検索してみてください。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- フッター -->
+    <footer class="bg-white border-t mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center text-gray-600 text-sm">
+                &copy; 2024 BlueskyNEWS. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // サンプル記事データ
+        const articles = [
+            {
+                id: '/article1',
+                title: 'Blueskyの新機能について',
+                thumbnail: 'https://images.unsplash.com/photo-1557180295-76eee20ae8aa',
+                category: 'ソーシャルメディア',
+                date: '2024年3月15日',
+                summary: 'Blueskyの最新アップデートについて解説します。',
+                tags: ['Bluesky', 'SNS', '新機能']
+            },
+            {
+                id: '/article2',
+                title: '2024年のテクノロジートレンド',
+                thumbnail: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c',
+                category: 'テクノロジー',
+                date: '2024年3月14日',
+                summary: '今年注目を集めているテクノロジーの最新トレンドをご紹介。',
+                tags: ['テクノロジー', 'トレンド', 'AI']
+            },
+            {
+                id: '/article3',
+                title: 'Web開発の最新動向',
+                thumbnail: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6',
+                category: '開発',
+                date: '2024年3月13日',
+                summary: 'Webアプリケーション開発の最新トレンドと技術動向について。',
+                tags: ['Web開発', 'プログラミング', 'フロントエンド']
+            }
+        ];
+
+        // 全タグのリストを取得
+        const allTags = [...new Set(articles.flatMap(article => article.tags))];
+
+        // タグの表示
+        function displayTags() {
+            const tagContainer = document.getElementById('tagContainer');
+            tagContainer.innerHTML = allTags.map(tag => `
+                <button
+                    onclick="toggleTag('${tag}')"
+                    class="tag-button px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors"
+                    data-tag="${tag}"
+                >
+                    ${tag}
+                </button>
+            `).join('');
+        }
+
+        // タグの選択状態を切り替え
+        function toggleTag(tag) {
+            const button = document.querySelector(`[data-tag="${tag}"]`);
+            button.classList.toggle('bg-blue-100');
+            button.classList.toggle('text-blue-700');
+            button.classList.toggle('bg-gray-100');
+            button.classList.toggle('text-gray-700');
+            searchArticles();
+        }
+
+        // タイトル検索をクリア
+        function clearTitleSearch() {
+            document.getElementById('titleSearch').value = '';
+            searchArticles();
+        }
+
+        // 記事の検索
+        function searchArticles() {
+            const titleSearch = document.getElementById('titleSearch').value.toLowerCase();
+            const selectedTags = Array.from(document.querySelectorAll('.tag-button.bg-blue-100'))
+                .map(button => button.dataset.tag);
+            const sortSelect = document.getElementById('sortSelect');
+            
+            // 検索条件に合う記事をフィルタリング
+            let filteredArticles = articles.filter(article => {
+                const titleMatch = article.title.toLowerCase().includes(titleSearch);
+                const tagMatch = selectedTags.length === 0 || 
+                    selectedTags.every(tag => article.tags.includes(tag));
+                return titleMatch && tagMatch;
+            });
+
+            // ソート
+            filteredArticles.sort((a, b) => {
+                const dateA = new Date(a.date.replace('年', '/').replace('月', '/').replace('日', ''));
+                const dateB = new Date(b.date.replace('年', '/').replace('月', '/').replace('日', ''));
+                return sortSelect.value === 'newest' ? dateB - dateA : dateA - dateB;
+            });
+
+            // 結果の表示
+            displaySearchResults(filteredArticles);
+        }
+
+        // 検索結果の表示
+        function displaySearchResults(results) {
+            const searchResults = document.getElementById('searchResults');
+            const noResults = document.getElementById('noResults');
+
+            if (results.length === 0) {
+                searchResults.innerHTML = '';
+                noResults.classList.remove('hidden');
+                return;
+            }
+
+            noResults.classList.add('hidden');
+            searchResults.innerHTML = results.map(article => `
+                <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="relative">
+                        <img 
+                            src="${article.thumbnail}" 
+                            alt="${article.title}" 
+                            class="w-full h-48 object-cover"
+                            loading="lazy"
+                        >
+                        <button 
+                            onclick="toggleBookmark('${article.id}')"
+                            class="absolute top-2 right-2 p-2 bg-white rounded-full shadow-md hover:bg-gray-100"
+                        >
+                            <i class="far fa-bookmark text-gray-400"></i>
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center gap-2 text-sm text-gray-600 mb-2">
+                            <span class="bg-gray-100 px-2 py-0.5 rounded-full">${article.category}</span>
+                            <time>${article.date}</time>
+                        </div>
+                        <h2 class="text-lg font-bold text-gray-900 mb-2 line-clamp-2">
+                            <a href="${article.id}" class="hover:text-blue-600">${article.title}</a>
+                        </h2>
+                        <p class="text-gray-600 text-sm line-clamp-3 mb-4">
+                            ${article.summary}
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            ${article.tags.map(tag => `
+                                <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full">
+                                    ${tag}
+                                </span>
+                            `).join('')}
+                        </div>
+                        <div class="flex justify-end">
+                            <a href="${article.id}" class="text-blue-600 hover:text-blue-700 text-sm font-medium">
+                                続きを読む
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        // ブックマークの切り替え
+        function toggleBookmark(id) {
+            const bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '{}');
+            const article = articles.find(a => a.id === id);
+            
+            if (bookmarks[id]) {
+                delete bookmarks[id];
+                showToast('ブックマークを解除しました');
+            } else {
+                bookmarks[id] = {
+                    ...article,
+                    bookmarkedAt: new Date().toISOString()
+                };
+                showToast('ブックマークに追加しました');
+            }
+            
+            localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+            searchArticles(); // 表示を更新
+        }
+
+        // トースト通知の表示
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-4 py-2 rounded-lg shadow-lg text-sm transition-opacity duration-300';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 300);
+            }, 2000);
+        }
+
+        // イベントリスナーの設定
+        document.getElementById('titleSearch').addEventListener('input', searchArticles);
+        document.getElementById('sortSelect').addEventListener('change', searchArticles);
+
+        // 初期表示
+        displayTags();
+        searchArticles();
+    </script>
+</body>
+</html>
