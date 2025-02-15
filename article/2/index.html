@@ -118,8 +118,12 @@
                     </button>
 
                     <!-- ブックマークボタン -->
-                    <button class="p-3 sm:p-2 hover:bg-gray-100 rounded-full touch-manipulation flex items-center gap-2 text-sm">
-                        <i class="far fa-bookmark text-gray-600 text-lg sm:text-base"></i>
+                    <button 
+                        id="bookmarkButton"
+                        class="p-3 sm:p-2 hover:bg-gray-100 rounded-full touch-manipulation flex items-center gap-2 text-sm"
+                        onclick="toggleBookmark()"
+                    >
+                        <i id="bookmarkIcon" class="far fa-bookmark text-gray-600 text-lg sm:text-base"></i>
                         <span class="sm:hidden">保存</span>
                     </button>
                 </div>
