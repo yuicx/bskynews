@@ -47,99 +47,21 @@
             <!-- ソート -->
             <div class="flex items-center gap-2">
                 <span class="text-sm text-gray-600">並び替え:</span>
-                <select class="bg-white border border-gray-300 rounded-md px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <option>保存日時が新しい順</option>
-                    <option>保存日時が古い順</option>
-                    <option>記事の公開日が新しい順</option>
-                    <option>記事の公開日が古い順</option>
+                <select id="sortSelect" class="bg-white border border-gray-300 rounded-md px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="newest">保存日時が新しい順</option>
+                    <option value="oldest">保存日時が古い順</option>
                 </select>
             </div>
         </div>
 
         <!-- 記事リスト -->
-        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <!-- 記事カード -->
-            <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                <div class="relative">
-                    <img 
-                        src="https://images.unsplash.com/photo-1495020689067-958852a7765e" 
-                        alt="記事サムネイル" 
-                        class="w-full h-48 object-cover"
-                        loading="lazy"
-                    >
-                    <button class="absolute top-2 right-2 p-2 bg-white rounded-full shadow-md hover:bg-gray-100">
-                        <i class="fas fa-bookmark text-blue-500"></i>
-                    </button>
-                </div>
-                <div class="p-4">
-                    <div class="flex items-center gap-2 text-sm text-gray-600 mb-2">
-                        <span class="bg-gray-100 px-2 py-0.5 rounded-full">カテゴリ</span>
-                        <time>2024年3月14日</time>
-                    </div>
-                    <h2 class="text-lg font-bold text-gray-900 mb-2 line-clamp-2">
-                        <a href="#" class="hover:text-blue-600">記事タイトルがここに入ります</a>
-                    </h2>
-                    <p class="text-gray-600 text-sm line-clamp-3 mb-4">
-                        記事の要約や説明文がここに入ります。長い文章は3行で切り捨てられます。
-                    </p>
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <button class="text-gray-400 hover:text-gray-600">
-                                <i class="far fa-check-circle"></i>
-                            </button>
-                            <button class="text-gray-400 hover:text-gray-600">
-                                <i class="far fa-star"></i>
-                            </button>
-                        </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-700 text-sm font-medium">
-                            続きを読む
-                        </a>
-                    </div>
-                </div>
-            </article>
+        <div id="bookmarksList" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- 記事カードはJavaScriptで動的に追加されます -->
+        </div>
 
-            <!-- 記事カード（既読） -->
-            <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                <div class="relative">
-                    <img 
-                        src="https://images.unsplash.com/photo-1504711434969-e33886168f5c" 
-                        alt="記事サムネイル" 
-                        class="w-full h-48 object-cover"
-                        loading="lazy"
-                    >
-                    <button class="absolute top-2 right-2 p-2 bg-white rounded-full shadow-md hover:bg-gray-100">
-                        <i class="fas fa-bookmark text-blue-500"></i>
-                    </button>
-                </div>
-                <div class="p-4">
-                    <div class="flex items-center gap-2 text-sm text-gray-600 mb-2">
-                        <span class="bg-gray-100 px-2 py-0.5 rounded-full">カテゴリ</span>
-                        <time>2024年3月13日</time>
-                    </div>
-                    <h2 class="text-lg font-bold text-gray-900 mb-2 line-clamp-2">
-                        <a href="#" class="hover:text-blue-600">既読の記事タイトル</a>
-                    </h2>
-                    <p class="text-gray-600 text-sm line-clamp-3 mb-4">
-                        既に読んだ記事の要約文がここに入ります。
-                    </p>
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <button class="text-green-500">
-                                <i class="fas fa-check-circle"></i>
-                            </button>
-                            <button class="text-yellow-500">
-                                <i class="fas fa-star"></i>
-                            </button>
-                        </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-700 text-sm font-medium">
-                            もう一度読む
-                        </a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- 空の状態のプレースホルダー -->
-            <article class="border-2 border-dashed border-gray-200 rounded-lg p-6 flex flex-col items-center justify-center text-center">
+        <!-- 空の状態のプレースホルダー -->
+        <div id="emptyState" class="hidden">
+            <div class="border-2 border-dashed border-gray-200 rounded-lg p-6 flex flex-col items-center justify-center text-center">
                 <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-4">
                     <i class="far fa-bookmark text-gray-400 text-xl"></i>
                 </div>
@@ -147,22 +69,7 @@
                 <p class="text-gray-600 text-sm">
                     気になる記事をブックマークして、後で読むことができます。
                 </p>
-            </article>
-        </div>
-
-        <!-- ページネーション -->
-        <div class="mt-8 flex justify-center">
-            <nav class="flex items-center gap-2">
-                <button class="p-2 rounded-lg border hover:bg-gray-50 text-gray-600" disabled>
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="px-4 py-2 rounded-lg bg-blue-600 text-white font-medium">1</button>
-                <button class="px-4 py-2 rounded-lg hover:bg-gray-50 text-gray-600">2</button>
-                <button class="px-4 py-2 rounded-lg hover:bg-gray-50 text-gray-600">3</button>
-                <button class="p-2 rounded-lg border hover:bg-gray-50 text-gray-600">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </nav>
+            </div>
         </div>
     </main>
 
@@ -174,5 +81,116 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // ブックマークリストの表示
+        function displayBookmarks() {
+            const bookmarksContainer = document.getElementById('bookmarksList');
+            const emptyState = document.getElementById('emptyState');
+            const sortSelect = document.getElementById('sortSelect');
+            const bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '{}');
+            
+            // ブックマークを配列に変換
+            let bookmarkArray = Object.entries(bookmarks).map(([id, data]) => ({
+                id,
+                ...data
+            }));
+
+            // ブックマークが空の場合
+            if (bookmarkArray.length === 0) {
+                bookmarksContainer.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            // ソート
+            bookmarkArray.sort((a, b) => {
+                if (sortSelect.value === 'newest') {
+                    return new Date(b.bookmarkedAt) - new Date(a.bookmarkedAt);
+                } else {
+                    return new Date(a.bookmarkedAt) - new Date(b.bookmarkedAt);
+                }
+            });
+
+            // 記事カードを生成
+            bookmarksContainer.innerHTML = bookmarkArray.map(bookmark => `
+                <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="relative">
+                        <img 
+                            src="${bookmark.thumbnail}" 
+                            alt="${bookmark.title}" 
+                            class="w-full h-48 object-cover"
+                            loading="lazy"
+                        >
+                        <button 
+                            onclick="removeBookmark('${bookmark.id}')"
+                            class="absolute top-2 right-2 p-2 bg-white rounded-full shadow-md hover:bg-gray-100"
+                        >
+                            <i class="fas fa-bookmark text-blue-500"></i>
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center gap-2 text-sm text-gray-600 mb-2">
+                            <span class="bg-gray-100 px-2 py-0.5 rounded-full">${bookmark.category}</span>
+                            <time>${bookmark.date}</time>
+                        </div>
+                        <h2 class="text-lg font-bold text-gray-900 mb-2 line-clamp-2">
+                            <a href="${bookmark.id}" class="hover:text-blue-600">${bookmark.title}</a>
+                        </h2>
+                        <p class="text-gray-600 text-sm line-clamp-3 mb-4">
+                            ${bookmark.summary}
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <button class="text-gray-400 hover:text-gray-600">
+                                    <i class="far fa-check-circle"></i>
+                                </button>
+                                <button class="text-gray-400 hover:text-gray-600">
+                                    <i class="far fa-star"></i>
+                                </button>
+                            </div>
+                            <a href="${bookmark.id}" class="text-blue-600 hover:text-blue-700 text-sm font-medium">
+                                続きを読む
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            `).join('');
+
+            emptyState.classList.add('hidden');
+        }
+
+        // ブックマークの削除
+        function removeBookmark(id) {
+            const bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '{}');
+            delete bookmarks[id];
+            localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+            
+            // トースト通知を表示
+            showToast('ブックマークを削除しました');
+            
+            // リストを更新
+            displayBookmarks();
+        }
+
+        // トースト通知の表示
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-4 py-2 rounded-lg shadow-lg text-sm transition-opacity duration-300';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 300);
+            }, 2000);
+        }
+
+        // ソート変更時のイベントリスナー
+        document.getElementById('sortSelect').addEventListener('change', displayBookmarks);
+
+        // 初期表示
+        displayBookmarks();
+    </script>
 </body>
 </html>
