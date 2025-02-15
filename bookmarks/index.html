@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブックマーク - BlueskyNEWS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <!-- ヘッダー -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="/">
+                        <img src="https://blueskynews.vercel.app/img/logo.png" alt="BlueskyNEWS" class="h-8">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- ページヘッダー -->
+        <div class="mb-8">
+            <h1 class="text-2xl sm:text-3xl font-bold text-gray-900">ブックマーク</h1>
+            <p class="mt-2 text-gray-600">保存した記事をここで管理できます</p>
+        </div>
+
+        <!-- フィルターとソート -->
+        <div class="mb-6 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between">
+            <!-- フィルター -->
+            <div class="flex flex-wrap gap-2">
+                <button class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium hover:bg-blue-200 transition-colors">
+                    すべて
+                </button>
+                <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors">
+                    未読
+                </button>
+                <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors">
+                    お気に入り
+                </button>
+            </div>
+
+            <!-- ソート -->
+            <div class="flex items-center gap-2">
+                <span class="text-sm text-gray-600">並び替え:</span>
+                <select class="bg-white border border-gray-300 rounded-md px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option>保存日時が新しい順</option>
+                    <option>保存日時が古い順</option>
+                    <option>記事の公開日が新しい順</option>
+                    <option>記事の公開日が古い順</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- 記事リスト -->
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- 記事カード -->
+            <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <div class="relative">
+                    <img 
+                        src="https://images.unsplash.com/photo-1495020689067-958852a7765e" 
+                        alt="記事サムネイル" 
+                        class="w-full h-48 object-cover"
+                        loading="lazy"
+                    >
+                    <button class="absolute top-2 right-2 p-2 bg-white rounded-full shadow-md hover:bg-gray-100">
+                        <i class="fas fa-bookmark text-blue-500"></i>
+                    </button>
+                </div>
+                <div class="p-4">
+                    <div class="flex items-center gap-2 text-sm text-gray-600 mb-2">
+                        <span class="bg-gray-100 px-2 py-0.5 rounded-full">カテゴリ</span>
+                        <time>2024年3月14日</time>
+                    </div>
+                    <h2 class="text-lg font-bold text-gray-900 mb-2 line-clamp-2">
+                        <a href="#" class="hover:text-blue-600">記事タイトルがここに入ります</a>
+                    </h2>
+                    <p class="text-gray-600 text-sm line-clamp-3 mb-4">
+                        記事の要約や説明文がここに入ります。長い文章は3行で切り捨てられます。
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <button class="text-gray-400 hover:text-gray-600">
+                                <i class="far fa-check-circle"></i>
+                            </button>
+                            <button class="text-gray-400 hover:text-gray-600">
+                                <i class="far fa-star"></i>
+                            </button>
+                        </div>
+                        <a href="#" class="text-blue-600 hover:text-blue-700 text-sm font-medium">
+                            続きを読む
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 記事カード（既読） -->
+            <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <div class="relative">
+                    <img 
+                        src="https://images.unsplash.com/photo-1504711434969-e33886168f5c" 
+                        alt="記事サムネイル" 
+                        class="w-full h-48 object-cover"
+                        loading="lazy"
+                    >
+                    <button class="absolute top-2 right-2 p-2 bg-white rounded-full shadow-md hover:bg-gray-100">
+                        <i class="fas fa-bookmark text-blue-500"></i>
+                    </button>
+                </div>
+                <div class="p-4">
+                    <div class="flex items-center gap-2 text-sm text-gray-600 mb-2">
+                        <span class="bg-gray-100 px-2 py-0.5 rounded-full">カテゴリ</span>
+                        <time>2024年3月13日</time>
+                    </div>
+                    <h2 class="text-lg font-bold text-gray-900 mb-2 line-clamp-2">
+                        <a href="#" class="hover:text-blue-600">既読の記事タイトル</a>
+                    </h2>
+                    <p class="text-gray-600 text-sm line-clamp-3 mb-4">
+                        既に読んだ記事の要約文がここに入ります。
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <button class="text-green-500">
+                                <i class="fas fa-check-circle"></i>
+                            </button>
+                            <button class="text-yellow-500">
+                                <i class="fas fa-star"></i>
+                            </button>
+                        </div>
+                        <a href="#" class="text-blue-600 hover:text-blue-700 text-sm font-medium">
+                            もう一度読む
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 空の状態のプレースホルダー -->
+            <article class="border-2 border-dashed border-gray-200 rounded-lg p-6 flex flex-col items-center justify-center text-center">
+                <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-4">
+                    <i class="far fa-bookmark text-gray-400 text-xl"></i>
+                </div>
+                <h3 class="text-gray-900 font-medium mb-2">記事を保存</h3>
+                <p class="text-gray-600 text-sm">
+                    気になる記事をブックマークして、後で読むことができます。
+                </p>
+            </article>
+        </div>
+
+        <!-- ページネーション -->
+        <div class="mt-8 flex justify-center">
+            <nav class="flex items-center gap-2">
+                <button class="p-2 rounded-lg border hover:bg-gray-50 text-gray-600" disabled>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="px-4 py-2 rounded-lg bg-blue-600 text-white font-medium">1</button>
+                <button class="px-4 py-2 rounded-lg hover:bg-gray-50 text-gray-600">2</button>
+                <button class="px-4 py-2 rounded-lg hover:bg-gray-50 text-gray-600">3</button>
+                <button class="p-2 rounded-lg border hover:bg-gray-50 text-gray-600">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </nav>
+        </div>
+    </main>
+
+    <!-- フッター -->
+    <footer class="bg-white border-t mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center text-gray-600 text-sm">
+                &copy; 2024 BlueskyNEWS. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
