@@ -184,5 +184,66 @@ When the device is held vertically, horizontal videos will be played back with l
         </div>
     </footer>
 </article>
+    <script>
+        // ブックマーク機能の実装
+        const bookmarkButton = document.getElementById('bookmarkButton');
+        const bookmarkIcon = document.getElementById('bookmarkIcon');
+        
+        // 記事情報
+        const article = {
+            id: window.location.pathname, // URLをIDとして使用
+            title: document.title,
+            thumbnail: document.querySelector('img[alt="記事サムネイル"]').src,
+            category: document.querySelector('.bg-gray-100').textContent,
+            date: document.querySelector('time').textContent,
+            summary: document.querySelector('.prose p').textContent
+        };
+
+        // LocalStorageからブックマーク状態を取得
+        function isBookmarked() {
+            const bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '{}');
+            return !!bookmarks[article.id];
+        }
+
+        // ブックマークの切り替え
+        function toggleBookmark() {
+            const bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '{}');
+            
+            if (isBookmarked()) {
+                // ブックマークを解除
+                delete bookmarks[article.id];
+                bookmarkIcon.className = 'far fa-bookmark text-gray-600 text-lg sm:text-base';
+                showToast('ブックマークを解除しました');
+            } else {
+                // ブックマークを追加
+                bookmarks[article.id] = {
+                    ...article,
+                    bookmarkedAt: new Date().toISOString()
+                };
+                bookmarkIcon.className = 'fas fa-bookmark text-blue-500 text-lg sm:text-base';
+                showToast('ブックマークに追加しました');
+            }
+            
+            localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+        }
+
+        // トースト通知の表示
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-4 py-2 rounded-lg shadow-lg text-sm transition-opacity duration-300';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 300);
+            }, 2000);
+        }
+
+        // 初期状態の設定
+        if (isBookmarked()) {
+            bookmarkIcon.className = 'fas fa-bookmark text-blue-500 text-lg sm:text-base';
+        }
+    </script>    
 </body>
 </html>
