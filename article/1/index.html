@@ -4,73 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bluesky Update1.96 📣 - BlueskyNEWS</title>
-    <link rel="icon" href="https://blueskynews.vercel.app/Bluesky.svg" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-    
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4; /* Light gray background for the site */
-    }
-
-    .header {
-        background-color: #000; /* Black background for header */
-        color: #fff; /* White text */
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-    }
-
-    .logo img {
-        height: 50px; /* Set a fixed height for the logo */
-    }
-
-    .menu ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-    }
-
-    .menu li {
-        margin-left: 20px;
-    }
-
-    .menu a {
-        color: #fff; /* White text for menu links */
-        text-decoration: none;
-        font-weight: bold;
-    }
-
-    .menu a:hover {
-        text-decoration: underline; /* Underline links on hover */
-    }
-</style>
     <!-- HTML -->
-    <!-- ヘッダー -->
+<!-- ヘッダー -->
 <header class="header"> <!-- Defines the top section of the page containing the logo and menu -->
-    <div class="logo"> <!-- Contains the site logo -->
-    <a href="https://blueskynews.vercel.app/">
-    <img src="https://blueskynews.vercel.app/img/logo.png" alt="logo" style="width:300px;"></a>
-    </div>
-    <nav class="menu"> <!-- Navigation menu for site links -->
-    <ul>
-        <li><a href="index.html">Home</a></li> <!-- Link to the homepage -->
-        <li><a href="<https://bsky.app/profile/bskynews.bsky.social>">Bluesky</a></li> <!-- Link to world news -->
-        <li><a href="<https://github.com/yuicx/bskynews>">GitHub</a></li> <!-- Link to politics news -->
-        <li><a href="/about">About</a></li> <!-- Link to business news -->
-        <li><a href="<https://bsky.app/profile/wilsie.bsky.social>">what is yui</a></li> <!-- Link to technology news -->
-    </ul>
-    </nav>
+<div class="logo"> <!-- Contains the site logo -->
+<a href="https://blueskynews.vercel.app/">
+<img src="https://blueskynews.vercel.app/img/logo.png" alt="logo" style="width:300px;"></a>
+</div>
+<nav class="menu"> <!-- Navigation menu for site links -->
+<ul>
+<li><a href="index.html">Home</a></li> <!-- Link to the homepage -->
+<li><a href="https://bsky.app/profile/bskynews.bsky.social">Bluesky</a></li> <!-- Link to world news -->
+<li><a href="https://github.com/yuicx/bskynews">GitHub</a></li> <!-- Link to politics news -->
+<li><a href="/about">About</a></li> <!-- Link to business news -->
+<li><a href="https://bsky.app/profile/wilsie.bsky.social">what is yui</a></li> <!-- Link to technology news -->
+</ul>
+</nav>
 </header>
-    
-    <!-- メインコンテンツ -->
-    <body class="bg-gray-50">
+<body class="bg-gray-50">
     <article class="max-w-6xl mx-auto bg-white shadow-lg overflow-hidden min-h-screen sm:min-h-0 sm:my-8 sm:rounded-lg">
         <!-- 記事ヘッダー -->
         <header class="p-4 sm:p-6 border-b">
@@ -105,7 +59,6 @@
                             title: document.title,
                             url: window.location.href
                         }).catch(() => {
-                            // クリップボードにコピー
                             navigator.clipboard.writeText(window.location.href).then(() => {
                                 alert('URLをクリップボードにコピーしました');
                             }).catch(() => {
@@ -118,8 +71,12 @@
                     </button>
 
                     <!-- ブックマークボタン -->
-                    <button class="p-3 sm:p-2 hover:bg-gray-100 rounded-full touch-manipulation flex items-center gap-2 text-sm">
-                        <i class="far fa-bookmark text-gray-600 text-lg sm:text-base"></i>
+                    <button 
+                        id="bookmarkButton"
+                        class="p-3 sm:p-2 hover:bg-gray-100 rounded-full touch-manipulation flex items-center gap-2 text-sm"
+                        onclick="toggleBookmark()"
+                    >
+                        <i id="bookmarkIcon" class="far fa-bookmark text-gray-600 text-lg sm:text-base"></i>
                         <span class="sm:hidden">保存</span>
                     </button>
                 </div>
@@ -128,10 +85,6 @@
                 <time datetime="2024-12-20">2024年12月20日</time>
                 <span class="hidden sm:inline mx-2">•</span>
                 <span class="bg-gray-100 px-2 py-1 rounded-full sm:bg-transparent sm:p-0">カテゴリ</span>
-            </div>
-            
-            <div class="text-sm text-gray-600">
-                Writer: yui
             </div>
         </header>
 
@@ -152,21 +105,21 @@
                 <div class="prose max-w-none">
                     <!-- 記事の内容をここに -->
                     <p class="text-gray-700 leading-relaxed mb-4 text-base sm:text-lg">
-                        Bluesky's application version 1.96 has been released 📣<br>
-                        1, notifications mentions tab<br>
-                            <img src="https://blueskynews.vercel.app/img/2.jpg" alt="Notifications Mentions" width="150"><br>
-                        2,You can now immediately change the way replies are displayed by using the settings button in the posting thread.<br>
-                            <img src="https://blueskynews.vercel.app/img/1.jpg" width="150">
-                    </p>
-                    
-                    <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mt-8 mb-4">
-                        Bluesky official post
-                    </h2>
-                    
+<p class="text-gray-700 leading-relaxed mb-4 text-base sm:text-lg">
+                    Bluesky's application version 1.96 has been released 📣<br>
+                    1, notifications mentions tab<br>
+                        <img src="<https://blueskynews.vercel.app/img/2.jpg>" alt="Notifications Mentions" width="150"><br>
+                    2,You can now immediately change the way replies are displayed by using the settings button in the posting thread.<br>
+                        <img src="<https://blueskynews.vercel.app/img/1.jpg>" width="150">
+                </p>
+
+                <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mt-8 mb-4">
+                    Bluesky official post
+                </h2>
+
 <blockquote class="bluesky-embed" data-bluesky-uri="at://did:plc:z72i7hdynmk6r22z27h6tvur/app.bsky.feed.post/3ldoudjpdmk2y" data-bluesky-cid="bafyreib5pp3oowv6g6hsoxu7kr2gzo3eemoaey4q4fv24nsebcjwfexdq4"><p lang="en">📢 App Version 1.96 is rolling out now (1/6)
 
-In this release: a notifications Mentions tab, reserving your default username when you verify your account with a domain, and other improvements!<br><br><a href="https://bsky.app/profile/did:plc:z72i7hdynmk6r22z27h6tvur/post/3ldoudjpdmk2y?ref_src=embed">[image or embed]</a></p>&mdash; Bluesky (<a href="https://bsky.app/profile/did:plc:z72i7hdynmk6r22z27h6tvur?ref_src=embed">@bsky.app</a>) <a href="https://bsky.app/profile/did:plc:z72i7hdynmk6r22z27h6tvur/post/3ldoudjpdmk2y?ref_src=embed">2024年12月20日 6:54</a></blockquote><script async src="https://embed.bsky.app/static/embed.js" charset="utf-8"></script>
-                    
+In this release: a notifications Mentions tab, reserving your default username when you verify your account with a domain, and other improvements!<br><br><a href="https://bsky.app/profile/did:plc:z72i7hdynmk6r22z27h6tvur/post/3ldoudjpdmk2y?ref_src=embed">[image or embed]</a></p>— Bluesky (<a href="https://bsky.app/profile/did:plc:z72i7hdynmk6r22z27h6tvur?ref_src=embed">@bsky.app</a>) <a href="https://bsky.app/profile/did:plc:z72i7hdynmk6r22z27h6tvur/post/3ldoudjpdmk2y?ref_src=embed">2024年12月20日 6:54</a></blockquote><script async src="https://embed.bsky.app/static/embed.js" charset="utf-8"></script>
                 </div>
             </div>
 
@@ -190,8 +143,73 @@ In this release: a notifications Mentions tab, reserving your default username w
                     <span class="inline-block bg-gray-100 rounded-full px-3 py-1">#Bluesky</span>
                     <span class="inline-block bg-gray-100 rounded-full px-3 py-1">#1.96</span>
                 </div>
+                <div class="text-sm text-gray-600">
+                    著者: 名前
+                </div>
             </div>
         </footer>
     </article>
+
+    <script>
+        // ブックマーク機能の実装
+        const bookmarkButton = document.getElementById('bookmarkButton');
+        const bookmarkIcon = document.getElementById('bookmarkIcon');
+        
+        // 記事情報
+        const article = {
+            id: window.location.pathname, // URLをIDとして使用
+            title: document.title,
+            thumbnail: document.querySelector('img[alt="記事サムネイル"]').src,
+            category: document.querySelector('.bg-gray-100').textContent,
+            date: document.querySelector('time').textContent,
+            summary: document.querySelector('.prose p').textContent
+        };
+
+        // LocalStorageからブックマーク状態を取得
+        function isBookmarked() {
+            const bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '{}');
+            return !!bookmarks[article.id];
+        }
+
+        // ブックマークの切り替え
+        function toggleBookmark() {
+            const bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '{}');
+            
+            if (isBookmarked()) {
+                // ブックマークを解除
+                delete bookmarks[article.id];
+                bookmarkIcon.className = 'far fa-bookmark text-gray-600 text-lg sm:text-base';
+                showToast('ブックマークを解除しました');
+            } else {
+                // ブックマークを追加
+                bookmarks[article.id] = {
+                    ...article,
+                    bookmarkedAt: new Date().toISOString()
+                };
+                bookmarkIcon.className = 'fas fa-bookmark text-blue-500 text-lg sm:text-base';
+                showToast('ブックマークに追加しました');
+            }
+            
+            localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+        }
+
+        // トースト通知の表示
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-4 py-2 rounded-lg shadow-lg text-sm transition-opacity duration-300';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 300);
+            }, 2000);
+        }
+
+        // 初期状態の設定
+        if (isBookmarked()) {
+            bookmarkIcon.className = 'fas fa-bookmark text-blue-500 text-lg sm:text-base';
+        }
+    </script>
 </body>
 </html>
