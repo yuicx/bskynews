@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Searching for posts by users has been added 🎉🎉 - BlueskyNEWS</title>
+<link rel="icon" href="https://blueskynews.vercel.app/Bluesky.svg" type="image/png">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="https://blueskynews.vercel.app/Bluesky.svg" type="image/png">   
+    <meta property="og:image" content="https://blueskynews.vercel.app/img/11.png">
+    <meta property="og:title" content="Searching for posts by users has been added 🎉🎉 - BlueskyNEWS">
+    <meta property="og:description" content="A site (unofficial) that provides information on Bluesky updates.">
+    <meta property="og:url" content="https://blueskynews.vercel.app/article/5">
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@yuikun_xt" />
+    <meta name="twitter:title" content="Searching for posts by users has been added 🎉🎉 - BlueskyNEWS" />
+    <meta name="twitter:description" content="A site (unofficial) that provides information on Bluesky updates." />
+    <meta name="twitter:image" content="https://blueskynews.vercel.app/img/11.png" />     
+</head>
+<style>
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+background-color: #f4f4f4; /* Light gray background for the site */
+}
+.header {
+    background-color: #000; /* Black background for header */
+    color: #fff; /* White text */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo img {
+    height: 50px; /* Set a fixed height for the logo */
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.menu li {
+    margin-left: 20px;
+}
+
+.menu a {
+    color: #fff; /* White text for menu links */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu a:hover {
+    text-decoration: underline; /* Underline links on hover */
+}
+</style>
+<!-- HTML -->
+<!-- ヘッダー -->
+<header class="header"> <!-- Defines the top section of the page containing the logo and menu -->
+<div class="logo"> <!-- Contains the site logo -->
+<a href="https://blueskynews.vercel.app/">
+<img src="https://blueskynews.vercel.app/img/logo.png" alt="logo" style="width:300px;"></a>
+</div>
+<nav class="menu"> <!-- Navigation menu for site links -->
+<ul>
+<li><a href="index.html">Home</a></li> <!-- Link to the homepage -->
+<li><a href="https://bsky.app/profile/bskynews.bsky.social">Bluesky</a></li> <!-- Link to world news -->
+<li><a href="https://github.com/yuicx/bskynews">GitHub</a></li> <!-- Link to politics news -->
+<li><a href="/about">About</a></li> <!-- Link to business news -->
+<li><a href="https://bsky.app/profile/wilsie.bsky.social">what is yui</a></li> <!-- Link to technology news -->
+</ul>
+</nav>
+</header>
+<!-- メインコンテンツ -->
+<body class="bg-gray-50">
+<article class="max-w-6xl mx-auto bg-white shadow-lg overflow-hidden min-h-screen sm:min-h-0 sm:my-8 sm:rounded-lg">
+    <!-- 記事ヘッダー -->
+    <header class="p-4 sm:p-6 border-b">
+        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4 mb-4">
+            <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 max-w-2xl">
+                <!-- 記事タイトルをここに -->
+                Searching for posts by users has been added 🎉🎉
+            </h1>
+            <div class="flex space-x-2 sm:space-x-1">
+                <!-- Twitter共有ボタン -->
+                <button
+                    class="p-3 sm:p-2 hover:bg-gray-100 rounded-full touch-manipulation flex items-center gap-2 text-sm"
+                    onclick="window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(document.title)}&url=${encodeURIComponent(window.location.href)}`, '_blank', 'width=550,height=420')"
+                >
+                    <i class="fab fa-twitter text-[#1DA1F2] text-lg sm:text-base"></i>
+                    <span class="sm:hidden">Twitter</span>
+                </button>
+
+                <!-- Bluesky共有ボタン -->
+                <button
+                    class="p-3 sm:p-2 hover:bg-gray-100 rounded-full touch-manipulation flex items-center gap-2 text-sm"
+                    onclick="window.open(`https://bsky.app/intent/compose?text=${encodeURIComponent(document.title + ' ' + window.location.href)}`, '_blank')"
+                >
+                    <i class="fas fa-cloud text-[#0085FF] text-lg sm:text-base"></i>
+                    <span class="sm:hidden">Bluesky</span>
+                </button>
+
+                <!-- 一般的な共有ボタン -->
+                <button
+                    class="p-3 sm:p-2 hover:bg-gray-100 rounded-full touch-manipulation flex items-center gap-2 text-sm"
+                    onclick="navigator.share({
+                        title: document.title,
+                        url: window.location.href
+                    }).catch(() => {
+                        // クリップボードにコピー
+                        navigator.clipboard.writeText(window.location.href).then(() => {
+                            alert('URLをクリップボードにコピーしました');
+                        }).catch(() => {
+                            alert('共有機能は対応していないブラウザでは使用できません。');
+                        });
+                    })"
+                >
+                    <i class="fas fa-share-alt text-gray-600 text-lg sm:text-base"></i>
+                    <span class="sm:hidden">共有</span>
+                </button>
+
+                <!-- ブックマークボタン -->
+                    <button 
+                        id="bookmarkButton"
+                        class="p-3 sm:p-2 hover:bg-gray-100 rounded-full touch-manipulation flex items-center gap-2 text-sm"
+                        onclick="toggleBookmark()"
+                    >
+                        <i id="bookmarkIcon" class="far fa-bookmark text-gray-600 text-lg sm:text-base"></i>
+                        <span class="sm:hidden">保存</span>
+                    </button>
+            </div>
+        </div>
+        <div class="flex flex-wrap items-center text-gray-600 text-sm gap-2">
+            <time datetime="2025-02-18">2025年2月18日</time>
+            <span class="hidden sm:inline mx-2">•</span>
+            <span class="bg-gray-100 px-2 py-1 rounded-full sm:bg-transparent sm:p-0">カテゴリ</span>
+        </div>
+
+        <div class="text-sm text-gray-600">
+            Writer: yui
+        </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <div class="flex flex-col lg:flex-row gap-6 sm:gap-8">
+        <!-- モバイルでの画像表示 -->
+        <div class="lg:hidden w-full">
+            <img
+                src="https://blueskynews.vercel.app/img/10.png"
+                alt="記事サムネイル"
+                class="w-full h-auto"
+                loading="lazy"
+            >
+        </div>
+
+        <!-- 本文 -->
+        <div class="p-4 sm:p-6 lg:w-3/5">
+            <div class="prose max-w-none">
+                <!-- 記事の内容をここに -->
+                <p class="text-gray-700 leading-relaxed mb-4 text-base sm:text-lg">
+Bluesky 1.98 is now available! 🎉🎉
+<br>
+The new features are as follows 👇
+- Searching for posts by users has been added
+                  <img src="https://blueskynews.vercel.app/img/10">
+                  <img src="https://blueskynews.vercel.app/img/11">
+<br>
+- A new option has been added to specify who can reply to a post 😆🎉
+                  <img src="https://blueskynews.vercel.app/img/12">                  
+<br>
+                  Bluesky Official Post
+<blockquote class="bluesky-embed" data-bluesky-uri="at://did:plc:z72i7hdynmk6r22z27h6tvur/app.bsky.feed.post/3lifoglqwdc25" data-bluesky-cid="bafyreibd6dejr2eez43ldaylenriond3gzqbwevnsd4q47q7bz3r3eenxa"><p lang="en">📢 App Version 1.98 is rolling out now, including: (1/5)
+
+• a new option for who can reply to your posts
+• search posts by a user
+• lots of little improvements to make the app feel better!<br><br><a href="https://bsky.app/profile/did:plc:z72i7hdynmk6r22z27h6tvur/post/3lifoglqwdc25?ref_src=embed">[image or embed]</a></p>&mdash; Bluesky (<a href="https://bsky.app/profile/did:plc:z72i7hdynmk6r22z27h6tvur?ref_src=embed">@bsky.app</a>) <a href="https://bsky.app/profile/did:plc:z72i7hdynmk6r22z27h6tvur/post/3lifoglqwdc25?ref_src=embed">2025年2月18日 6:20</a></blockquote><script async src="https://embed.bsky.app/static/embed.js" charset="utf-8"></script>
+                </p>
+            </div>
+        </div>
+
+        <!-- デスクトップでの画像表示 -->
+        <div class="hidden lg:block lg:w-2/5 p-6">
+            <div class="sticky top-6">
+                <img
+                    src="https://blueskynews.vercel.app/img/10.png"
+                    alt="記事サムネイル"
+                    class="w-full h-auto rounded-lg shadow-md"
+                    loading="lazy"
+                >
+            </div>
+        </div>
+    </div>
+
+    <!-- 記事フッター -->
+    <footer class="p-4 sm:p-6 border-t border-gray-200">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div class="flex flex-wrap gap-2 text-sm text-gray-600">
+                <span class="inline-block bg-gray-100 rounded-full px-3 py-1">#Bluesky</span>
+                <span class="inline-block bg-gray-100 rounded-full px-3 py-1">#1.98</span>
+            </div>
+        </div>
+    </footer>
+</article>
+    <script>
+        // ブックマーク機能の実装
+        const bookmarkButton = document.getElementById('bookmarkButton');
+        const bookmarkIcon = document.getElementById('bookmarkIcon');
+        
+        // 記事情報
+        const article = {
+            id: window.location.pathname, // URLをIDとして使用
+            title: document.title,
+            thumbnail: document.querySelector('img[alt="記事サムネイル"]').src,
+            category: document.querySelector('.bg-gray-100').textContent,
+            date: document.querySelector('time').textContent,
+            summary: document.querySelector('.prose p').textContent
+        };
+
+        // LocalStorageからブックマーク状態を取得
+        function isBookmarked() {
+            const bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '{}');
+            return !!bookmarks[article.id];
+        }
+
+        // ブックマークの切り替え
+        function toggleBookmark() {
+            const bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '{}');
+            
+            if (isBookmarked()) {
+                // ブックマークを解除
+                delete bookmarks[article.id];
+                bookmarkIcon.className = 'far fa-bookmark text-gray-600 text-lg sm:text-base';
+                showToast('ブックマークを解除しました');
+            } else {
+                // ブックマークを追加
+                bookmarks[article.id] = {
+                    ...article,
+                    bookmarkedAt: new Date().toISOString()
+                };
+                bookmarkIcon.className = 'fas fa-bookmark text-blue-500 text-lg sm:text-base';
+                showToast('ブックマークに追加しました');
+            }
+            
+            localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+        }
+
+        // トースト通知の表示
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-4 py-2 rounded-lg shadow-lg text-sm transition-opacity duration-300';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 300);
+            }, 2000);
+        }
+
+        // 初期状態の設定
+        if (isBookmarked()) {
+            bookmarkIcon.className = 'fas fa-bookmark text-blue-500 text-lg sm:text-base';
+        }
+    </script>    
+</body>
+</html>
